@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import PokemonCard from './components/PokemonCard';
 
 class App extends React.Component {
   constructor(){
@@ -20,11 +21,11 @@ class App extends React.Component {
   }
 
   increaseNumber(){
-    this.setState({numberOfPokemonToShow: this.state.numberOfPokemonToShow + 1})
+    this.setState({numberOfPokemonToShow: this.state.numberOfPokemonToShow + 1});
   }
 
   decreaseNumber(){
-    this.setState({numberOfPokemonToShow: this.state.numberOfPokemonToShow - 1})
+    this.setState({numberOfPokemonToShow: this.state.numberOfPokemonToShow - 1});
   }
 
   render(){
@@ -40,16 +41,13 @@ class App extends React.Component {
 
         {/* Create an array of size {numberOfPokemonToShow}, give each element in the array a value of null */}
         {/* For each item in the array, render a HTML element (eg. a H1) */}
-        {/* 
-            {Array(this.state.numberOfPokemonToShow)
-            .fill(null)
-            .map((element, index) => { 
-              return <h1>{index}</h1> 
-              })
-              } 
-        */}
-        
-        {Array(this.state.numberOfPokemonToShow).fill(null).map((element, index) => { return <h1>{index}</h1> })}
+        {
+          Array(this.state.numberOfPokemonToShow)
+          .fill(null)
+          .map((element, index) => { 
+            return <PokemonCard />
+          })
+        }
 
       </div>
     );
